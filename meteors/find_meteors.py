@@ -16,7 +16,7 @@ def calc_dist(lat1, lon1, lat2, lon2):
 
 def get_dist(meteor):
     return meteor.get('distance', math.inf)
-    
+
 if __name__ == '__main__':
     my_loc = (29.424122, -98.493628)
 
@@ -24,6 +24,7 @@ if __name__ == '__main__':
     meteor_data = meteor_resp.json()
 
     for meteor in meteor_data:
+        ##print("hans dampf\n")
         if not ('reclat' in meteor and 'reclong' in meteor): continue
         meteor['distance'] = calc_dist(float(meteor['reclat']),
                                        float(meteor['reclong']),
